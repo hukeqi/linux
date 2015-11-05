@@ -119,7 +119,7 @@ __rb_insert(struct rb_node *node, struct rb_root *root,
 		if (parent != tmp) {	/* parent == gparent->rb_left */
 			if (tmp && rb_is_red(tmp)) {
 				/*
-				 * Case 1 - color flips
+				 * Case 1 - color flips 红父红叔
 				 *
 				 *       G            g
 				 *      / \          / \
@@ -142,7 +142,7 @@ __rb_insert(struct rb_node *node, struct rb_root *root,
 			tmp = parent->rb_right;
 			if (node == tmp) {
 				/*
-				 * Case 2 - left rotate at parent
+				 * Case 2 - left rotate at parent 红父黑叔，且子节点为右孩子
 				 *
 				 *      G             G
 				 *     / \           / \
